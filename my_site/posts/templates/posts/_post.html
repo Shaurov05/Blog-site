@@ -1,0 +1,27 @@
+
+  <div class="techfont">
+    <div class="row">
+      <div class="col-md-1">
+
+      </div>
+      <div class="col-md-10">
+        <h3><br><a href="{% url 'posts:single' username=post.user.username pk=post.pk %}"><strong>{{post.title}} </strong> </a></h2>
+        <h6><a href="{% url 'posts:for_user' username=post.user.username %}">{{post.user.username}}</a>
+        <time class="time"><a href="{% url 'posts:single' username=post.user.username pk=post.pk %}"></a>{{post.created_at}} </time>
+        {% if post.category %}
+          <span>in <a href="{% url 'categories:single' slug=post.category.slug %}">{{post.category.name}}</a> </span>
+        {% endif %}
+        <br>
+
+          <br>
+          <h3 class="message_html">{{post.message_html|safe}}</h3>
+
+          {% if user.is_authenticated and user == post.user and not hide_delete%}
+            <a href="{% url 'posts:delete' pk=post.pk %}" title="delete" class="btn btn-danger">
+    					<span class="glyphicon glyphicon-remove" aria-hidden="true">Delete</span>
+    				</a>
+          {% endif %}
+
+      </div>
+    </div>
+    </div>

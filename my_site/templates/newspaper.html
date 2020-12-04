@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section id="steps" class="section-bg">
+  <div class="container">
+      <div class="jumbotron">
+
+          {% if is_national %}
+          <center><h1> Latest National News of  Prothom Alo and Kaler Kontho</h1>
+            <a href="{% url 'sports' %}" class="btn btn-danger">Sports News</a>
+          {% else %}
+          <center><h1> Latest Sports News of  Prothom Alo and Kaler Kontho</h1>
+            <a href="{% url 'national' %}" class="btn btn-danger">National News</a>
+          {% endif %}
+          <h5><br> ***Only latest news are shown here. News headlines may change after sometime when Prothom Alo and
+            Kaler Kontho updates their website.</h5>
+        </center>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          {% if is_national %}
+            <h3>প্রথম আলো-বাংলাদেশ </h3>
+          {% else %}
+            <h3>প্রথম আলো-খেলা </h3>
+          {% endif %}
+          <br>
+          {% for item in prothom_alo %}
+            <a href="https://www.prothomalo.com{{item.3}}">
+              <h5>{{item.0}}</h5>
+            </a>
+            <h6>{{item.1}}</h6>
+            <h6>---------{{item.2}}</h6>
+            <hr>
+          {% endfor %}
+          <br>
+        </div>
+
+        <div class="col-6">
+          {% if is_national %}
+            <h3> কালের কণ্ঠ-বাংলাদেশ </h3>
+          {% else %}
+            <h3> কালের কণ্ঠ-খেলা </h3>
+          {% endif %}
+          <br>
+          <!-- <h6> {{kl_date}}</h6> -->
+
+          {% for news in kaler_kontho %}
+            <a href="https://www.kalerkantho.com{{news.2}}">
+              <h5>{{news.0}}</h6>
+            </a>
+            <h6>{{news.1}}</h6>
+            <p>{{kl_date}}</p>
+            <hr>
+          {% endfor %}
+          <br>
+        </div>
+
+      </div>
+    </div>
+</section>
+
+{% endblock %}

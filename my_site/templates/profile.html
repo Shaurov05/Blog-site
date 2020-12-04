@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load static %}
+
+{% block content %}
+  <section id="steps" class="steps section-bg">
+
+    <div class="content-item">
+      <div class="row">
+        <div class="col-lg-5 col-md-5">
+
+          {% if user_info.profile_pic %}
+            <img src="{{user_info.picture.url}}" alt="">
+          {% else %}
+
+          <img src="{{user_info.picture.url}}" alt="">
+          {% endif %}
+        </div>
+
+        <div class="col-lg-2 col-md-2">
+            <br><br><br><hr>
+            <h3 class="user-title">Username </h3>
+
+            <h4 class="info2">First Name </h4>
+            <h4 class="info2">Last Name </h4>
+            <h4 class="info2">Email </h4>
+        <hr>
+        </div>
+
+        <div class="col-md-5 col-lg-5">
+          <br><br><br><hr>
+          <h3 class="user"> {{user.username}}</h3>
+
+          {% if user.first_name %}
+            <h4 class="info2">{{user.first_name}}</h4>
+          {% else %}
+            <h4 class="info2">NULL</h3>
+          {% endif %}
+
+          {% if user.last_name %}
+            <h4 class="info2">{{user.last_name}}</h3>
+          {% else %}
+            <h4 class="info2"> NULL</h3>
+          {% endif %}
+
+          {% if user.email %}
+            <h4 class="info2">{{user.email}}</h3>
+          {% else %}
+            <h4 class="info2">NULL</h3>
+          {% endif %}
+        <hr>
+        </div>
+      </div>
+    </div>
+
+
+    {# ######################## #}
+    <div class="container">
+      {% block prepost %}
+        <div class="row">
+          <div class="col-md-6 col-lg-6">
+            <h1><br> Author: {{user_info.post_user.username}}</h1>
+            <h5 class="techfont">Post written by {{user_info.post_user.username}} : {{post_list.count}} </h5>
+          </div>
+        </div>
+      {% endblock %}
+
+      {% block post_content %}
+      <div class="row">
+        <div class="col-md-8 col-lg-8">
+          <br>
+            {% for post in post_list %}
+              <hr>
+              {% include "posts/_post.html" %}
+              <hr>
+            {% endfor %}
+        </div>
+      </div>
+
+      {% endblock %}
+    </div>
+  </section>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+
+#categories {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.categories-bg {
+  background-color: #f2f9f8;
+}
+
+.categories-title {
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+.categories-title h2 {
+  font-size: 36px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  padding-bottom: 0;
+  color: #21413c;
+}
+
+.categories-title p {
+  margin-bottom: 0;
+}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{# {% load bootstrap3 %} #}
+
+{% load crispy_forms_tags %}
+{% block content %}
+<section id="steps" class="section-bg">
+    <div class="jumbotron">
+
+      {% if request.user.is_authenticated %}
+        <h2>Can't register more than once!<br>
+          You have already registered. Go to <a href="{% url 'index_page' %}"> HomePage</a> </h2>
+      {% else %}
+      <h2> <strong>Please Sign Up</strong></h2><br>
+      <form enctype="multipart/form-data" method="post">
+        <div class="form-group">
+          {# {% load bootstrap_form form %} #}
+          {% csrf_token %}
+          {{ user_form|crispy }}
+          {{ profile_form|crispy }}
+          <input type="submit" name="" class="btn btn-primary" value="Register">
+
+        </div>
+      </form>
+      {% endif %}
+    </div>
+</section>
+  {% endblock %}
