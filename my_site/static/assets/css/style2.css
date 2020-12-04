@@ -1,0 +1,296 @@
+.contact div div div .info{
+  background: #e8eced;
+}
+
+.about .icon-box a.title {
+  text-align: justify;
+  font : 24px/1.5 Merriweather,Georgia,times new roman,serif;
+  color: #282e42;
+}
+
+
+
+.full-body {
+  font : Merriweather,Georgia,times new roman,serif;
+  background-color: #fff;
+}
+
+.steps div div div .col-md-10  p, blockquote {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+
+  text-align: justify;
+  color: #222;
+  font : 400 17px/1.7 Merriweather,Georgia,times new roman,serif;
+}
+
+.steps div div div div .list-group-item-text{
+  font : 400 17px/1.7 Merriweather,Georgia,times new roman,serif;
+  color: #53536e;
+}
+
+.steps div div h2 {
+  font : 400 26px/1.8 Merriweather,Georgia,times new roman,serif;
+  color: #071a33;
+}
+
+.steps div div .jumbotron h2{
+  font : 400 Merriweather,Georgia,times new roman,serif;
+  color: #143766;
+}
+
+.steps div div .jumbotron h5{
+  font : 400 18px/1.8 Merriweather,Georgia,times new roman,serif;
+  color: #2b476e;
+}
+
+.steps div div div div a{
+  font : Merriweather,Georgia,times new roman,serif;
+}
+
+.steps div h2{
+  margin-top: 0;
+  margin-bottom: 1rem;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+
+  text-align: justify;
+  font : 400 28px/1.8 Merriweather,Georgia,times new roman,serif;
+}
+
+
+.steps div div div .techfont .message{
+  margin-top: 0;
+  margin-bottom: 1rem;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+
+  text-align: justify;
+  color: #222;
+  font : 400 17px/1.7 Merriweather,Georgia,times new roman,serif;
+
+}
+
+
+.steps div div div .techfont .message a{
+
+  font : 400 17px/1.8 Merriweather,Georgia,times new roman,serif;
+  color: #4dbac4;
+}
+
+/* post of profile page  */
+.steps div div div .techfont div div h3 p{
+  margin-top: 0;
+  margin-bottom: 1rem;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  color: #222;
+
+  text-align: justify;
+  font : 400 17px/1.8 Merriweather,Georgia,times new roman,serif;
+}
+
+.steps .row div div .techfont h3 p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  color: #222;
+
+  text-align: justify;
+  font : 400 17px/1.7 Merriweather,Georgia,times new roman,serif;
+  /* font-size: 21px;
+  font-style: oblique;
+  font-family:  serif; */
+}
+
+
+.steps div div div h3 a{
+  text-align: justify;
+  font : 400 24px/1.8 Merriweather,Georgia,times new roman,serif;
+
+}
+
+.steps .container .techfont h3 p a {
+  color: #0686c2;
+  font-weight: 900;
+  font : 400 18px/1.8 Merriweather,Georgia,times new roman,serif;
+}
+
+.steps .container .techfont h3 a {
+  color: #0d3569;
+  font : 400 30px/1.8 Merriweather,Georgia,times new roman,serif;
+}
+
+.steps div div div div .image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
+/* #text of comment */
+.steps div div .comment .single .message_text {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin-left: 40px;
+  margin-right: 40px;
+
+  color: #222;
+  text-align: justify;
+  font : 400 16px/1.8 Merriweather,Georgia,times new roman,serif;
+}
+
+/* date time posted by of comment */
+.steps div div .comment .single .container {
+  margin-left: 25px;
+  margin-right: 30px;
+
+  color: #64646e;
+  text-align: justify;
+  font : 400 15px/1.8 Merriweather,Georgia,times new roman,serif;
+}
+
+
+.steps div .single-comment .comment .single{
+  background-color: #ede8e8;
+}
+
+
+.steps div div .container .single-comment div h4{
+  text-align: justify;
+  color: #2a2a3b;
+  font : 400 16px/1.8 Merriweather,Georgia,times new roman,serif;
+}
+
+.steps div div .container .single-comment div .container {
+  text-align: justify;
+  color: #747491;
+  font : 400 14px/1.8 Merriweather,Georgia,times new roman,serif;
+}
+
+.steps div div .new_comment{
+  text-align: justify;
+  background-color: #d1d2de;
+}
+
+
+.nav-menu .drop-down .user{
+  color: #72ccdb;
+  font-size: 1em;
+  text-decoration: underline;
+}
+
+.nav-menu .drop-down ul li a.logout{
+  color: #7a151d;
+  font-size: 1em;
+  text-decoration: underline;
+  background-color: #d5c5e6;
+}
+
+
+.steps .content-item div h3.info {
+  color: #7a151d;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+.steps .content-item div h3.user-title {
+  color: #333131;
+  font-size: 1.8em;
+  text-decoration: none;
+}
+
+.steps .content-item div h3.user {
+  color: #7a151d;
+  font-size: 1.8em;
+  text-decoration: none;
+}
+
+.steps .content-item div h4.info2 {
+  color: #9c9797;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+# categories
+--------------------------------------------------------------*/
+.categories {
+  padding: 50px 0 40px 0;
+  background-color: #222;
+  text-align: justify;
+  color: #2a2a3b;
+  font : 400 16px/1.8 Merriweather,Georgia,times new roman,serif;
+  font: red 400 Merriweather,Georgia,times new roman,serif;
+}
+
+.categories .row {
+  overflow: hidden;
+}
+
+.categories .content-item .category_link{
+  display: block;
+  font-size: 24px;
+  font-weight: 400;
+  color: #133f54;
+}
+
+.categories .content-item .link_name {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  color: #23495c;
+}
+
+.categories .content-item {
+  padding: 40px;
+  border-left: 1px solid #d4e9e6;
+  border-bottom: 1px solid #d4e9e6;
+  margin: -1px;
+}
+
+.categories .content-item span {
+  display: block;
+  font-size: 24px;
+  font-weight: 400;
+  color: #1bac91;
+}
+
+.categories .content-item h4 {
+  font-size: 28px;
+  font-weight: 400;
+  padding: 0;
+  margin: 10px 0;
+  color: #21413c;
+}
+
+.categories .content-item p {
+  color: #626363;
+  font : 400 16px/1.48 Merriweather,Georgia,times new roman,serif;
+
+  text-align: justify;
+}

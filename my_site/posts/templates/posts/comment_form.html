@@ -1,0 +1,16 @@
+{% extends "posts/post_base.html" %}
+
+{% block prepost %}
+  <div class="jumbotron">
+    <h2>New Comment</h2>
+    <form class="" action="" method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button type="submit" class="save btn btn-default">Submit</button>
+    </form>
+
+    <script>var editor = new MediumEditor('.editable');</script>
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "categories/category_base.html" %}
+
+{% block precategory %}
+<div class="container">
+    <div class="jumbotron">
+
+      {% if user.is_authenticated %}
+        <h2><strong>Welcome in the Category Page
+          <a href="{% url 'posts:for_user' username=user.username %}">{{user.username}}</a>
+        </strong> </h2>
+      {% endif %}
+        <h2>Categories are listed below</h2>
+        <h5><strong>Total Categories: {{object_list.count}}</strong> </h6>
+        <h5>Choose a category of your own interest and write your own blog.
+        You can also see blogs which was written by others also.</h5>
+        {% if user.is_authenticated %}
+          <a href="{% url 'categories:create' %}" class="btn btn-md btn-fill btn-warning"><span class="glyphicon glyphicon"></span><strong>Create New Category</strong> </a></a>
+        {% endif %}
+      </div>
+    </div>
+  {% endblock %}
+
+  {% block category_content %}
+  <div class="container">
+    <div class="col-md-12">
+      <div class="list-category">
+        {% for category in object_list %}
+          <a class="link" href="{% url 'categories:single' slug=category.slug %}">
+            <h3 class="list-group-item-headning">{{category.name}}</h3>
+          </a>
+            <div class="list-group-item-text container-fluid">
+              {{ category.description|safe }}
+              <br>
+              <div class="row">
+                <div class="col-md-3">
+                  <h6><span class="badge">Member{{ category.members.count|pluralize }} :{{category.members.count}}</span></h6>
+                </div>
+                <div class="col-md-4">
+                  <h6><span class="badge">Post{{ category.posts.count|pluralize }} :{{category.posts.count}}</span></h6>
+                </div>
+              </div>
+            </div>
+
+        {% endfor %}
+      </div>
+    </div>
+    </div>
+{% endblock %}

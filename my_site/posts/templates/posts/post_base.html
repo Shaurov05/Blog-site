@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+<link rel="stylesheet" href="{% static "assets/css/style2.css" %}">
+
+{% block content %}
+<section id="posts" class="steps section-bg">
+      {% block prepost %}
+
+      {% endblock %}
+
+      {% block post_content %}
+
+      {% endblock %}
+
+      {% block post_post %}
+
+      {% endblock %}
+
+</section>
+
+{% endblock %}

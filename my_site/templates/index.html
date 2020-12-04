@@ -1,0 +1,255 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+  <div class="container text-center text-md-left" data-aos="fade-up">
+    <p><br><br><br><br> </p>
+    <h1>Welcome to the Blog</h1>
+    <h2>Express your thoughts! Share what's on your mind.<br>
+      Create your own category and Post your blog! Let your
+      thoughts be expressed though your writing.<br><br>
+    You can also find many useful categories and blogs written on CSE related topics</h2>
+    <a href="#categories" class="btn-get-started scrollto">Get Started</a>
+  </div>
+</section><!-- End Hero -->
+
+<main id="main">
+
+  <!-- ======= Steps Section ======= -->
+  <section id="categories" class="categories section-bg">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-lg-12 col-md-12 content-item">
+          <div class="categories">
+            <div class="category_link">
+              <h2><strong>Categories</strong> </h2>
+            </div>
+          </div>
+        </div>
+        {% for category in object_list %}
+        <div class="col-lg-4 col-md-6 content-item" data-aos="fade-in" data-aos-delay="500">
+          <span>0{{category.pk}}</span>
+              <a href="{% url 'categories:single' slug=category.slug %}">
+                <h4 class="link_name">{{category.name}}</h4>
+              </a>
+              <p>{{category.description|safe}}</p>
+        </div>
+        {% endfor %}
+
+      </div>
+
+    </div>
+  </section><!-- End Steps Section -->
+
+  <!-- ======= Features Section ======= -->
+  <section id="projects" class="features">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
+          <ul class="nav nav-tabs flex-column">
+            <li class="nav-item">
+              <a class="nav-link active show" data-toggle="tab" href="#tab-1">
+                <h4>URL Classification</h4>
+                <p>Classification of URL using MNB and SGD.</p>
+              </a>
+            </li>
+            <li class="nav-item mt-2">
+              <a class="nav-link" data-toggle="tab" href="#tab-2">
+                <h4>News Crawler</h4>
+                <p>Crawling news from websites and cleaning using BeautifulSoap</p>
+              </a>
+            </li>
+            <li class="nav-item mt-2">
+              <a class="nav-link" data-toggle="tab" href="#tab-3">
+                <h4>Crawl Top 100 Movies</h4>
+                <p>Crawl top 100 movies from IMDB and save in your database.</p>
+              </a>
+            </li>
+            <li class="nav-item mt-2">
+              <a class="nav-link" data-toggle="tab" href="#tab-4">
+                <h4>Blog Site</h4>
+                <p>You can create category and join to write blogs.</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-7 ml-auto" data-aos="fade-left">
+          <div class="tab-content">
+            <div class="tab-pane active show" id="tab-1">
+              <figure>
+                <img src="{% static "assets/projects5.png" %}" alt="" class="img-fluid">
+              </figure>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Features Section -->
+
+
+  <!-- ======= Testimonials Section ======= -->
+  <section id="news" class="testimonials">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+        <h2>Quotes of Computer Scientists and Businessman</h2>
+        <p>"I choose a lazy person to do a hard job. Because a lazy person will find an easy way to do it. ~Bill Gates"</p>
+      </div>
+
+      <div class="owl-carousel testimonials-carousel" data-aos="fade-up">
+
+        <div class="testimonial-item">
+          <p>
+            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+            Coding is today's language of creativity. All our children deserve a chance to become creators instead consumers of computer science.
+            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            <br><br>
+            </p>
+          <img src="{% static 'assets/quote1.jfif' %}" class="testimonial-img" alt="">
+          <h3>Maria Klawe</h3>
+          <h4>Computer Scientist</h4>
+        </div>
+
+        <div class="testimonial-item">
+          <p>
+            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+            "The characteristic of great innovators and great companies is they see a space that others do not. They don't just listen to what people tell them; they actually invent something new, something that you didn't know you needed, but the moment you see it, you say, 'I must have it.'"
+            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+          </p>
+          <img src="{% static 'assets/quotes2.jfif' %}" class="testimonial-img" alt="">
+          <h3>Erik Schmidt</h3>
+          <h4>Businessman and software engineer.</h4>
+        </div>
+
+        <div class="testimonial-item">
+          <p>
+            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              "If debugging is the process of removing software bugs, then programming must be the process of putting them in."
+            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+          </p>
+          <img src="{% static 'assets/quote3.jfif' %}" class="testimonial-img" alt="">
+          <h3>Edsger Dijkstra</h3>
+          <h4>Dutch computer scientist</h4>
+        </div>
+
+        <div class="testimonial-item">
+          <p>
+            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              I have not failed. I've just found 10,000 ways that won't work.
+           <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+          </p>
+          <img src="{% static 'assets/quote4.jfif' %}" class="testimonial-img" alt="">
+          <h3>Thomas A. Edison </h3>
+          <h4>American inventor and businessman </h4>
+        </div>
+
+        <div class="testimonial-item">
+          <p>
+            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              It doesn't make sense to hire smart people
+              and then tell them what to do; we hire smart people
+              so they can tell us what to do.
+            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+          </p>
+          <img src="{% static 'assets/quote5.jfif' %}" class="testimonial-img" alt="">
+          <h3>Steve Jobs</h3>
+          <h4>American business magnate</h4>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Testimonials Section -->
+
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-xl-6 col-lg-7" data-aos="fade-right">
+          <img src="{% static 'assets/picture2.jpg'%}" class="img-fluid" alt="">
+        </div>
+        <div class="col-xl-6 col-lg-5 pt-5 pt-lg-0">
+          <h3 data-aos="fade-up">Sayad Ahmed Chowdhury</h3>
+          <p data-aos="fade-up">
+            I have completed BSc (Engineering) in CSE from Noakhali Science
+            & Technology University. Now, I have started to write blogs on
+            different topics i.e. Machine Learning, Django, Crawler etc.
+            <br>Find my posts here <a href="{% url 'posts:for_user' username='shaurov803' %}">shaurov803</a>
+          </p>
+          <div class="icon-box" data-aos="fade-up">
+            <i class="bx bx-cube-alt"></i>
+            <a class="title" href="#">Authentication in Django</a>
+            <p> Learn how to authenticate an user in a website </p>
+          </div>
+
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+            <i class="bx bx-cube-alt"></i>
+            <a class="title" href="#">Models in Django</h4></a>
+            <p>Model creation and registration of model using Django.</p>
+          </div>
+
+          <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+            <i class="bx bx-cube-alt"></i>
+            <a class="title" href="#">Crawler</h4></a>
+            <p>Learn how to crawl Prothon Alo and Kaler Kontho news websites using BeautifulSoap</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Section -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>Contact with me if needed. Though I am not an expert, but i can help you if it's under my area of knowledge.</p>
+        <p>Or else, You can reach me through Email.</p>
+      </div>
+
+      <div class="row no-gutters justify-content-center" data-aos="fade-up">
+
+        <div class="col-lg-5 d-flex align-items-stretch">
+          <div class="info">
+            <div class="address">
+              <i class="icofont-google-map"></i>
+              <h4>Location:</h4>
+              <p>Chittagong</p>
+            </div>
+
+            <div class="email mt-4">
+              <i class="icofont-envelope"></i>
+              <h4>Email:</h4>
+              <p>sacshaurov05@gmail.com</p>
+            </div>
+
+            <div class="phone mt-4">
+              <i class="icofont-phone"></i>
+              <h4>Call:</h4>
+              <p>+8801752296069</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-5 d-flex align-items-stretch">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7380.796347732003!2d91.77156152493262!3d22.33858949121473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd93857958ddd%3A0xd1ba4cdda8ebde58!2sB-Block%2C%20Chattogram!5e0!3m2!1sen!2sbd!4v1595689110741!5m2!1sen!2sbd" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+
+      </div>
+    </div>
+  </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+
+{% endblock %}

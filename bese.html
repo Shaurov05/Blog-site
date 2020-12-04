@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Thoughts</title>
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+
+  <link href="{% static '/assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static '/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/venobox/venobox.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/style2.css' %}" rel="stylesheet">
+
+
+  <!-- {# MEDIUM STYLE EDITOR#} -->
+      <script src="//cdn.jsdelivr.net/medium-editor/latest/js/medium-editor.min.js"></script>
+      <link rel="stylesheet" href="//cdn.jsdelivr.net/medium-editor/latest/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+
+</head>
+
+<body>
+{% load static %}
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="{% url 'index_page' %}">Thoughts</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="{% url 'index_page' %}"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a> -->
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li><a href="#"></a></li>
+          <li><a href="{% url 'national' %}">Today's News</a></li>
+          <li class="drop-down"><a href="#projects">Projects</a>
+            <ul>
+              <li><a href="#">URL Classification</a></li>
+              <li><a href="#">News Aggregator</a></li>
+              <li><a href="#">Crawling Top 100 Movies[IMDB]</a></li>
+              <li><a href="#">Crawling Top 100 Movies[RottenTomatoes]</a></li>
+            </ul>
+          </li>
+
+          <li class="drop-down"><a href="">CSE Blogs</a>
+            <ul>
+              <li><a href="/categories/posts/in/django">Django</a></li>
+              <li class="drop-down"><a href="#">Machine Learning</a>
+                <ul>
+                  <li><a href="/categories/posts/in/regression">Regression</a></li>
+                  <li><a href="/categories/posts/in/classification">Classification</a></li>
+                  <li><a href="/categories/posts/in/clustering">Clastering</a></li>
+                  <li><a href="/categories/posts/in/nlp">NLP</a></li>
+                </ul>
+              </li>
+              <li class="drop-down"><a href="#">Deep Learning</a>
+                <ul>
+                  <li><a href="#">ANN</a></li>
+                  <li><a href="#">CNN</a></li>
+                </ul>
+              </li>
+              <li class="drop-down"><a href="">Crawling</a>
+                <ul>
+                  <li><a href="#">Beautiful Soap</a></li>
+                  <li><a href="#">Scrapy</a></li>
+                  <li><a href="#">Selenium</a></li>
+                  <li><a href="#">Scraping and Django Model Integration</a> </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="posts"><a href="{% url 'posts:create' %}">Post</a></li>
+          <li><a href="{% url 'categories:all' %}">Categories</a></li>
+          <li><a href="#about">Myself</a></li>
+          <li><a href="#contact">Contact</a></li>
+
+          {% if user.is_authenticated %}
+          <li class="drop-down"><a class="user" href="#">{{user.username}}</a>
+              <ul class="user-link">
+                {% if not user.is_superuser %}
+                  <li ><a class="profile" href="{% url 'posts:for_user' username=user.username %}">Profile</a></li>
+                  <li ><a class="logout" href="{% url 'accounts:logout' %}">Log out</a></li>
+                {% else %}
+                  <li ><a class="logout" href="{% url 'accounts:logout' %}">Log out</a></li>
+                {% endif %}
+              </ul>
+            </li>
+          {% else %}
+            <li><a href="{% url 'accounts:login' %}">Log in</a></li>
+          {% endif %}
+
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+      {% block content %}
+
+      {% endblock %}
+
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-lg-6 col-md-6">
+              <div class="footer-info">
+                <h3>Sayad Ahmed Chowdhury (Shaurov)</h3>
+                <p>
+                  Halishahar <br>
+                  B-block, Chittagong<br><br>
+                  <strong>Phone:</strong> +8801752296069<br>
+                  <strong>Email:</strong> sacshaurov05@gmail.com<br>
+                </p>
+                <div class="social-links mt-3">
+                  <a href="https://www.facebook.com/sayad.ahmed.3720/" class="facebook"><i class="bx bxl-facebook"></i></a>
+                  <a href="https://www.instagram.com/ahmed_shaurov.10/?hl=en" class="instagram"><i class="bx bxl-instagram"></i></a>
+                  <!-- <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> -->
+                  <a href="https://www.linkedin.com/in/sayad-ahmed-b88a60195/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 footer-links">
+              <h4>Go To</h4>
+              <ul>
+                <li><i class="bx bx-chevron-right"></i> <a href="{% url 'index_page' %}">Home</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">About Me</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Blogs</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Projects</a></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/venobox/venobox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+
+  </body>
+
+  </html>

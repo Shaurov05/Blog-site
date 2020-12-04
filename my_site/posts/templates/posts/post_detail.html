@@ -1,0 +1,109 @@
+{% extends "posts/post_base.html" %}
+{% load static %}
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  {% block post_content %}
+  <hr>
+  <div class="row">
+    <div class="col-md-1"> </div>
+    <div class="col-md-10">
+      <div class="container">
+        {% include "posts/_post.html" %}
+        <br><br><br>
+
+        {# add_comment_to_post section #}
+          <div class="row">
+            <div class="col-md-1">  </div>
+            <div class="col-md-10"> <hr> </div>
+            <div class="col-md-1">  </div>
+            <div class="col-md-1">  </div>
+
+            <div class="col-md-8">
+              <h6><strong>Comment on this post</strong> </h6>
+              <form class="" action="" method="post">
+                {% csrf_token %}
+                {{comment_form.as_p}}
+            </div>
+
+            <div class="col-md-3">
+                <button type="submit" class="save btn btn-primary">Add Comment</button>
+              </div>
+              <div class="col-md-1">  </div>
+              <div class="col-md-10"> <hr> </div>
+              </form>
+            <script>var editor = new MediumEditor('.editable');</script>
+          </div>
+        <br>
+      </div>
+    </div>
+    </div>
+
+      {# comment section #}
+      <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-8 single-comment">
+
+          {% if new_comment %}
+              <div class="new_comment">
+                  <h6 class="">***Thanks for your response to this post. New Comment has been added.
+                    The right to approve or delete comments is given to the author.
+                    <br>Comment will be shown in the comment section when approved!
+                  </h6>
+              </div>
+                {% endif %}
+
+                <hr><h3>Comments by other authors</h3><hr>
+                <div class="comment">
+                  {% for comment in post.comments.all %}
+
+                    {% if  comment.approve_comment  %}
+
+                    <div class="single">
+                      <hr>
+                              <h4 class="message_text">{{comment.text|safe}}</h4>
+                              <div class="container row">
+
+                                <p>{{comment.created_date}}</p>
+
+                                <div class="col-md-1"> </div>
+                                <p>Posted by: <strong>{{ comment.author }}</strong></p>
+                            </div>
+                          <hr>
+                    </div>
+                   {% endif %}
+
+                    {% if post.user.username == user.username and not comment.approve_comment %}
+                      <div class="single">
+                        <hr>
+                          <h4 class="message_text">{{comment.text|safe|linebreaks}}</h4>
+                          <div class="container row">
+
+                            <div class="col-md-4">
+                              <p>{{comment.created_date}}</p>
+                            </div>
+                            <div class="col-md-8">
+                            <p>Posted by: <strong>{{ comment.author }}</strong></p>
+                            </div>
+                            <a class="btn btn-danger" href="{% url 'posts:comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove">Delete</span></a>
+                            <div class="col-md-1"> </div>
+                            <a class="btn btn-primary" href="{% url 'posts:comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok">Approve</span></a>
+
+                          </div>
+
+                        <hr>
+                      </div>
+
+                    {% endif %}
+
+                    {% empty %}
+                      <p>No Comments posted by anyone</p>
+                    {% endfor %}
+        </div>
+      </div>
+
+
+{% endblock %}

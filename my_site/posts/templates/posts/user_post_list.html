@@ -1,0 +1,122 @@
+{% extends "posts/post_base.html" %}
+{% load thumbnail %}
+{% load static %}
+{% load custom_tag %}
+
+{% block content %}
+  <section id="steps" class="steps section-bg">
+
+    <div class="content-item">
+      <div class="row">
+        <div class="col-lg-5 col-md-5">
+
+          {% if user_info_list.3 %}
+            <img src="{{user_info_list.2.url}}" alt="">
+          {% else %}
+
+          <img src="{{user_info_list.2.url}}" alt="">
+          {% endif %}
+        </div>
+
+        <div class="col-lg-2 col-md-2">
+            <br><br><br><br> <hr>
+            <h3 class="user-title">Username </h3>
+
+            <h4 class="info2">First Name </h4>
+            <h4 class="info2">Last Name </h4>
+            <h4 class="info2">Email </h4>
+        <hr>
+        </div>
+
+        <div class="col-md-5 col-lg-5">
+          <br><br><br><br> <hr>
+          <h3 class="user"> {{user_info_list.5}}</h3>
+
+          {% if user_info_list.6 %}
+            <h4 class="info2">{{user_info_list.6}}</h4>
+          {% else %}
+            <h4 class="info2">NULL</h3>
+          {% endif %}
+
+          {% if user_info_list.7 %}
+            <h4 class="info2">{{user_info_list.7}}</h3>
+          {% else %}
+            <h4 class="info2"> NULL</h3>
+          {% endif %}
+
+          {% if user_info_list.8 %}
+            <h4 class="info2">{{user_info_list.8}}</h3>
+          {% else %}
+            <h4 class="info2">NULL</h3>
+          {% endif %}
+        <hr>
+        </div>
+      </div>
+    </div>
+
+
+    {# ######################## #}
+    <div class="container">
+      {% block prepost %}
+        <div class="row">
+          <div class="col-md-6 col-lg-6">
+             <ul>
+               <li><h3>Categories Joined by <a href="{% url 'posts:for_user' username=user_info_list.5 %}">{{user_info_list.0}}</a></h3></li>
+
+                {% for categories in user_info_list.1 %}
+                    <ul>
+                      <li><a href="{% url 'categories:single' slug=categories.1 %}"> {{categories.0}}</a> </li>
+                    </ul>
+                {% endfor %}
+                <br>
+              <li><h5 class="techfont">Post written by {{user_info_list.5}} : {{post_list.count}} </h5></li>
+             </ul>
+          </div>
+        </div>
+      {% endblock %}
+
+      {% block post_content %}
+      <div class="row">
+        <div class="col-md-1">  </div>
+
+        <div class="col-md-10 col-lg-10">
+          <br>
+            {% for post in post_list %}
+              <hr>
+              <div class="row">
+                <div class="col-md-1">
+
+                </div>
+                <div class="col-md-10">
+                  <h3><br><a style="color:#0d3569; font-size:30px;" href="{% url 'posts:single' username=post.user.username pk=post.pk %}"><strong>{{post.title}} </strong> </a></h2>
+                  <h6><a href="{% url 'posts:for_user' username=post.user.username %}">{{post.user.username}}</a>
+                  <time class="time"><a href="{% url 'posts:single' username=post.user.username pk=post.pk %}"></a>{{post.created_at}} </time>
+                  {% if post.category %}
+                    <span>in <a href="{% url 'categories:single' slug=post.category.slug %}">{{post.category.name}}</a> </span>
+                  {% endif %}
+                  <br>
+
+                    <br>
+                    <h3 class="message_html">{{post.message_html|safe|truncatechars:300}}
+
+                        <span><a style="font-size:17px;" href="{% url 'posts:single' username=post.user.username pk=post.pk %}">{{post.message_html|check_char}}</a> </span>
+                      {# {% endif %} #}
+                    </h3>
+
+                    {% if user.is_authenticated and user == post.user and not hide_delete%}
+                      <a href="{% url 'posts:delete' pk=post.pk %}" title="delete" class="btn btn-danger">
+              					<span class="glyphicon glyphicon-remove" aria-hidden="true">Delete</span>
+              				</a>
+                    {% endif %}
+                </div>
+              </div>
+              <hr>
+            {% endfor %}
+        </div>
+      </div>
+
+      {% endblock %}
+    </div>
+  </section>
+
+{% endblock %}

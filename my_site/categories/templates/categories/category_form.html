@@ -1,0 +1,18 @@
+{% extends "categories/category_base.html" %}
+{% load bootstrap3 %}
+
+{% block category_content %}
+  <div class="container jumbotron">
+    <h3>Create a new Category</h3>
+    {# #action= create, because it will tell the CreateView
+    # to create a category of the provided field. #}
+    <form enctype="multipart/form-data" method="post">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <input type="submit" class="btn btn-primary btn-large" value="Create">
+    </form>
+  </div>
+
+  <script>var editor = new MediumEditor('.editable');</script>
+
+{% endblock %}

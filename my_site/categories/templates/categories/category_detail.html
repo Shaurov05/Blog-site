@@ -1,0 +1,92 @@
+{% extends "categories/category_base.html" %}
+{% load static %}
+<link rel="stylesheet" href="{% static "assets/css/style2.css" %}">
+
+
+{% block precategory %}
+<div class="jumbotron">
+
+    <div class="row">
+      <div class="col-md-8.5">
+        <div class="image">
+          {% if category_info.category_picture %}
+            <img src="{{category_info.picture.url}}" alt="">
+          {% endif %}
+        </div>
+        <div class="col-md-3.5"> </div> <br>
+      </div>
+    </div>
+
+  <h2><strong>Name of the Group: {{category.name}}</strong> </h2>
+  <h5>Members: {{category.members.count}}</h3>
+  <h5>Posts: {{category.posts.count}} </h4>
+
+  <div class="content">
+    {% if user in category.members.all %}
+      <br>
+      <a href="{% url 'categories:leave' slug=category.slug %}"class="btn btn-lg btn-fill btn-warning"><span class="glyphicon glyphicon"></span> Leave {{category.name}}</a>
+      <a href="{% url 'posts:create' %}" class="btn btn-lg btn-fill btn-primary">Create a Post!</a> </h2>
+
+  	{% else %}
+    <br>
+      <a href="{% url 'categories:join' slug=category.slug %}" class="btn btn-lg btn-fill btn-warning"><span class="glyphicon glyphicon"></span><h5>Join <strong>{{category.name}}</strong> </h4> </a>
+      <h6><br><strong>***Join {{category.name}} to write your own blog!</strong> </h4>
+    {% endif %}
+  </div>
+<h3>{{warning}}</h3>
+  </div>
+{% endblock %}
+
+{% block category_content %}
+   {# See, post model in posts/models.py file.. There is a
+   group model is connected with ForeignKey with post model.
+   and related_name=posts. so we can call category.posts.count.
+   we, can also call category.category.count. but here, it seems
+   easy and makes sense to use related_name posts.
+   that means, category.posts.count #}
+
+    {% if category.posts.count == 0 %}
+      <h2>No posts in this category!<br> <a href="{% url 'posts:create' %}">Write a Post</a></h2>
+
+    {% else %}
+
+      {% for post in category_info.posts %}
+        {# {% for post in post1 %} #}
+
+                <hr>
+                <div class="row">
+                  <div class="col-md-2">  </div>
+
+                  <div class="col-md-8">
+
+                      <div class="techfont">
+                        <h3 class="category_name"><br><a href="{% url 'posts:single' username=post.0 pk=post.1 %}"><strong>{{post.2}} </strong> </a></h2>
+                        <h6><a href="{% url 'posts:for_user' username=post.0 %}">{{post.0}}</a>
+                        <time class="time"><a href="{% url 'posts:single' username=post.0 pk=post.1 %}"></a>{{post.3}} </time>
+
+                        <span>in <a href="{% url 'categories:single' slug=post.4 %}">{{post.5}}</a> </span>
+                        <br>
+
+                        <br>
+                        {% if post.7 %}
+                        <h3 class="message">{{post.6|safe}}...<a style="font-size: 18px; color:#22d8b6" href="{% url 'posts:single' username=post.0 pk=post.1 %}">continue reading</a></h3>
+                        {% else %}
+                        <h3 class="message">{{post.6|safe}}</h3>
+                        {% endif %}
+                        {# <h3>{{post.7}}</h3> #}
+
+                        {% if user.is_authenticated and user.username == post.0 and not hide_delete%}
+                          <a href="{% url 'posts:delete' pk=post.1 %}" title="delete" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true">Delete</span>
+                          </a>
+                        {% endif %}
+
+                      </div>
+                  </div>
+                </div>
+                <hr>
+        {# {% endfor %} #}
+
+      {% endfor %}
+    {% endif %}
+{% endblock %}
